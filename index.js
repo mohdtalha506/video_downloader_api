@@ -20,7 +20,12 @@ const tempDir = os.tmpdir();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: '*', // OR: ['http://localhost:5173', 'https://your-netlify-app.netlify.app']
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 
 // Create temp directory for processing
