@@ -375,6 +375,15 @@ app.get('/api/download/instagram-alt', async (req, res) => {
     }
   }
 });
+
+// Test Route
+app.get('/api/test', async (req, res) => {
+  try {
+    res.status(200).json({ message: 'Backend is working!' });
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong', error: error.message });
+  }
+});
 // General route
 app.get('/api/download', async (req, res) => {
   const { url } = req.query;
